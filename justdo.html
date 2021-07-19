@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>just do list</title>
+</head>
+<body>
+    <div id="description">
+      <h1 class="title">just-do-list </h1>
+    </div>
+
+    <div>
+        <form action="#">
+         <input type="text" placeholder="mau bikin apa?" id="new_text">
+         <button onclick="add()"> Add </button>
+        </form>
+
+        <ul id="justdo"></ul>
+       
+    </div>
+
+    <style>
+        .done { text-decoration: line-through;}
+    </style>
+
+        <script>
+                //fitur justdolist:
+                //1. menambahkan
+                //2. coret kalau sudah selesai
+                //3. menghapus
+
+            function add() {
+                //1. ambil nilai dari textnya
+                let newText = document.getElementById('new_text')
+                console.log(newText.value)
+
+                //2. tambahkan list baru ke dalam ul
+                let newTodo = "<li> <span onclick='toggle(this)'>" + newText.value + "</span>" +
+                              "<span onclick='removeItem(this)'> [delete] </span>" + "</li>"
+                
+                justdo.insertAdjacentHTML('afterbegin', newTodo)
+
+                //3. kosongkan fieldnya
+                newText.value = ""
+        
+                }
+            function toggle(el) {
+                el.classList.toggle('done')
+                }
+            
+            function removeItem(el) {
+                el.parentElement.remove()
+                }
+            
+
+        </script>
+
+</body>
+</html>
